@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Portfolio de Noureddine Ennomani, administrateur systèmes et réseaux : réseaux, cloud et cybersécurité.">
+<style>:root{color-scheme:light}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Portfolio Noureddine Ennomani</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Layout: poster-like hero with network motif, then colour-blocked sections that read like a topology map: nodes (tiles) joined by a single line. */
+:root{
+  --bg:#F2F3FF; --surface:#FFFFFF; --fg:#16143F; --muted:#5A5880; --line:#D9DBF5;
+  --coral:#FF5A4E; --sun:#FFC933; --teal:#12C2B0; --violet:#6B4EFF;
+  --on-coral:#16143F; --on-sun:#16143F; --on-teal:#0B2B2A; --on-violet:#FFFFFF;
+  --ink-block:#16143F; --on-ink:#F2F3FF;
+  --f-display:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
+  --f-body:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#12112B; --surface:#1C1B3D; --fg:#F2F1FF; --muted:#A9A7D0; --line:#33316A;
+  --ink-block:#0B0A1D; --on-ink:#F2F1FF; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#12112B; --surface:#1C1B3D; --fg:#F2F1FF; --muted:#A9A7D0; --line:#33316A;
+  --ink-block:#0B0A1D; --on-ink:#F2F1FF; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:17px;line-height:1.6;padding-inline:20px}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--violet);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1080px;margin-inline:auto}
+section{padding-block:72px}
+h1,h2,h3{font-family:var(--f-display);line-height:1.02;margin:0;text-wrap:balance}
+h2{font-size:clamp(2.2rem,5.5vw,3.6rem);font-weight:800;letter-spacing:-.02em}
+p{margin:0}
+.label{font-family:var(--f-mono);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.sec-head{display:flex;flex-direction:column;gap:10px;margin-bottom:36px}
+.sec-head p{max-width:60ch;color:var(--muted)}
+
+/* nav */
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);margin-inline:-20px;padding:12px 20px;border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;gap:8px 20px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.brand{font-family:var(--f-display);font-weight:800;text-decoration:none;display:flex;gap:8px;align-items:center}
+.brand i{width:14px;height:14px;border-radius:50%;background:var(--coral);box-shadow:10px 0 0 var(--sun),20px 0 0 var(--teal);margin-right:20px}
+nav ul{display:flex;gap:4px 18px;list-style:none;margin:0;padding:0;flex-wrap:wrap;font-size:.92rem;font-weight:500}
+nav ul a{text-decoration:none;color:var(--muted)}
+nav ul a:hover{color:var(--fg)}
+
+/* hero */
+.hero{padding-block:56px 40px;display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:center}
+.hero>*{min-width:0}
+.kicker{display:inline-flex;gap:10px;align-items:center;font-family:var(--f-mono);font-size:.82rem;background:var(--surface);border:1px solid var(--line);padding:6px 14px;border-radius:99px;margin-bottom:22px;flex-wrap:wrap}
+.kicker b{width:9px;height:9px;border-radius:50%;background:var(--teal);display:inline-block}
+h1{font-size:clamp(3.1rem,10.5vw,7rem);font-weight:800;letter-spacing:-.035em}
+h1 span{display:block}
+h1 .a{color:var(--violet)}
+h1 .b{display:inline-block;background:var(--sun);color:var(--on-sun);padding:0 .14em;border-radius:.12em;transform:rotate(-1.5deg);margin-top:.06em}
+.lead{font-size:1.2rem;max-width:34em;margin-top:26px}
+.lead strong{font-weight:600;background:linear-gradient(transparent 62%,color-mix(in srgb,var(--teal) 55%,transparent) 62%)}
+.ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn{font-family:var(--f-display);font-weight:700;font-size:1rem;text-decoration:none;padding:13px 22px;border-radius:12px;border:2px solid var(--fg);display:inline-flex;gap:8px;align-items:center;transition:transform .15s,box-shadow .15s}
+.btn.main{background:var(--coral);color:var(--on-coral);border-color:var(--coral)}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--fg)}
+.portrait{position:relative;aspect-ratio:1;width:min(100%,380px);margin-inline:auto}
+.portrait .frame{position:absolute;inset:0;background:var(--coral);border-radius:46% 54% 42% 58%/55% 44% 56% 45%;overflow:hidden;z-index:1}
+.portrait .blob2{position:absolute;inset:-6% -6% 70% 72%;background:var(--sun);border-radius:50%}
+.portrait .blob3{position:absolute;inset:78% 78% -6% -4%;background:var(--teal);border-radius:50%}
+.portrait img{position:absolute;left:0;bottom:0;width:100%;height:auto;display:block}
+.portrait svg{position:absolute;inset:-14%;width:128%;height:128%;pointer-events:none;overflow:visible;z-index:0}
+.portrait svg line{stroke:var(--fg);stroke-width:1.5;stroke-dasharray:4 5;opacity:.55}
+.portrait svg circle{fill:var(--violet);stroke:var(--bg);stroke-width:3}
+
+/* ticker of key facts */
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-block:2px solid var(--fg);margin-top:24px}
+.facts div{padding:18px 16px;border-right:1px solid var(--line);min-width:0}
+.facts div:last-child{border-right:0}
+.facts b{display:block;font-family:var(--f-display);font-size:1.4rem;line-height:1.15}
+.facts span{font-size:.85rem;color:var(--muted)}
+
+/* profil */
+.profil{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:start}
+.profil>*{min-width:0}
+.profil .big{font-family:var(--f-display);font-weight:700;font-size:clamp(1.5rem,3.2vw,2.2rem);line-height:1.18;letter-spacing:-.01em}
+.profil .big em{font-style:normal;color:var(--violet)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .profil .big em{color:#A99BFF}}
+:root[data-theme="dark"] .profil .big em{color:#A99BFF}
+.profil p+p{margin-top:14px}
+
+/* parcours */
+.path{list-style:none;margin:0;padding:0;display:grid;gap:0;position:relative}
+.path li{display:grid;grid-template-columns:150px 28px 1fr;gap:0 18px;padding-bottom:30px;position:relative}
+.path li>*{min-width:0}
+.path .when{font-family:var(--f-mono);font-size:.82rem;color:var(--muted);padding-top:6px;text-align:right}
+.path .node{position:relative;display:flex;justify-content:center}
+.path .node::before{content:"";position:absolute;top:10px;bottom:-40px;width:2px;background:var(--line)}
+.path li:last-child .node::before{display:none}
+.path .node i{position:relative;width:20px;height:20px;border-radius:50%;background:var(--c);border:4px solid var(--bg);outline:2px solid var(--c);margin-top:6px}
+.path h3{font-size:1.35rem;font-weight:700}
+.path .where{color:var(--muted);font-size:.95rem;margin-top:2px}
+.path .what{margin-top:8px}
+.tag{display:inline-block;font-family:var(--f-mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;padding:2px 9px;border-radius:99px;background:var(--c);color:var(--on);margin-bottom:6px}
+
+/* pfe */
+.pfe{background:var(--violet);color:var(--on-violet);border-radius:28px;padding:clamp(24px,5vw,56px);display:grid;grid-template-columns:1.1fr .9fr;gap:36px;position:relative;overflow:hidden}
+.pfe>*{min-width:0}
+.pfe .label{color:#D8D1FF}
+.pfe h2{font-size:clamp(1.9rem,4.4vw,3rem);margin:10px 0 18px}
+.pfe ul{margin:0;padding:0;list-style:none;display:grid;gap:12px}
+.pfe li{padding-left:28px;position:relative}
+.pfe li::before{content:"";position:absolute;left:0;top:.5em;width:14px;height:14px;border-radius:4px;background:var(--sun)}
+.flow{display:grid;gap:10px;align-content:center;font-family:var(--f-mono);font-size:.85rem}
+.flow div{background:rgba(255,255,255,.14);border:1.5px solid rgba(255,255,255,.55);border-radius:14px;padding:14px 16px}
+.flow div b{display:block;font-family:var(--f-display);font-size:1.05rem;margin-bottom:2px;color:#fff}
+.flow .arrow{background:none;border:0;padding:0;text-align:center;color:var(--sun);font-size:1.3rem;line-height:1}
+.flow .hot{background:var(--sun);color:#16143F;border-color:var(--sun)}
+.flow .hot b{color:#16143F}
+
+/* projets */
+.grid6{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:var(--c);color:var(--on);border-radius:22px;padding:24px;display:flex;flex-direction:column;gap:14px;min-width:0;min-height:230px;transition:transform .2s}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.f{font-family:var(--f-mono);font-size:.85rem;padding:8px 16px;border-radius:99px;border:2px solid var(--fg);background:transparent;color:var(--fg);cursor:pointer}
+.f:hover{background:var(--surface)}
+.f[aria-pressed="true"]{background:var(--fg);color:var(--bg)}
+.card a{color:inherit;font-weight:600}
+.card.wide{grid-column:1/-1;min-height:0}
+.zflow{display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center;font-family:var(--f-mono);font-size:.85rem}
+.zflow span{padding:8px 14px;border-radius:12px;border:2px solid var(--on);min-width:0}
+.zflow span.hot{background:var(--on);color:var(--c);font-weight:500}
+.zflow i{font-style:normal;font-size:1.2rem}
+.card:hover{transform:translateY(-4px) rotate(-.6deg)}
+.card .top{display:flex;justify-content:space-between;align-items:center;font-family:var(--f-mono);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;opacity:.85}
+.card h3{font-size:1.9rem;font-weight:800;letter-spacing:-.02em}
+.card p{font-size:.98rem;line-height:1.45}
+.card .stack{margin-top:auto;font-family:var(--f-mono);font-size:.78rem;padding-top:6px;border-top:1.5px solid color-mix(in srgb,var(--on) 35%,transparent)}
+
+/* competences */
+.skills{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.skill{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:26px;min-width:0}
+.skill header{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.skill h3{font-size:1.5rem;font-weight:800}
+.skill .lvl{font-family:var(--f-mono);font-size:.74rem;padding:3px 10px;border-radius:99px;background:var(--c);color:var(--on)}
+.skill .desc{color:var(--muted);font-size:.95rem;margin-bottom:14px}
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chips span{font-family:var(--f-mono);font-size:.78rem;padding:4px 10px;border-radius:8px;border:1.5px solid var(--line);background:var(--bg)}
+.skill.wide{grid-column:1/-1}
+
+/* langues + certifs */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.duo>*{min-width:0}
+.langs{display:grid;gap:0;border-top:2px solid var(--fg)}
+.langs div{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}
+.langs b{font-family:var(--f-display);font-size:1.6rem;font-weight:700}
+.langs span{font-family:var(--f-mono);font-size:.8rem;color:var(--muted);text-align:right}
+.certs{display:grid;gap:12px}
+.cert{display:flex;gap:16px;align-items:center;padding:18px 20px;border-radius:18px;background:var(--c);color:var(--on)}
+.cert svg{flex:none;width:34px;height:34px}
+.cert b{font-family:var(--f-display);font-size:1.15rem;line-height:1.2;display:block}
+.cert span{font-size:.85rem;opacity:.85}
+
+/* contact */
+.contact{background:var(--ink-block);color:var(--on-ink);border-radius:32px;padding:clamp(28px,6vw,72px);display:grid;gap:32px}
+.contact h2{font-size:clamp(2.4rem,7vw,5rem)}
+.contact h2 em{font-style:normal;color:var(--sun)}
+.contact .lead{margin-top:0;color:#C9C7EE}
+.rows{display:grid;gap:10px;grid-template-columns:repeat(2,1fr)}
+.row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 18px;border:1.5px solid #3C3A78;border-radius:16px;min-width:0}
+.row div{min-width:0}
+.row:last-child:nth-child(odd){grid-column:1/-1}
+.row small{display:block;font-family:var(--f-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:#9A98D0}
+.row .v{font-weight:600;overflow-wrap:anywhere}
+.copy,.go{flex:none;font-family:var(--f-mono);font-size:.76rem;color:#16143F;background:var(--sun);border:0;border-radius:8px;padding:7px 12px;cursor:pointer;text-decoration:none}
+.go{background:var(--teal)}
+footer{padding-block:28px 40px;color:var(--muted);font-size:.85rem;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+/* entrée */
+@media (prefers-reduced-motion:no-preference){
+  .hero>*{animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
+  .hero>*:nth-child(2){animation-delay:.12s}
+  @keyframes rise{from{transform:translateY(22px)}to{transform:none}}
+  .portrait svg circle{animation:pulse 3.2s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+  .portrait svg circle:nth-of-type(2){animation-delay:.8s}
+  .portrait svg circle:nth-of-type(3){animation-delay:1.6s}
+  @keyframes pulse{50%{transform:scale(1.35)}}
+}
+
+@media (max-width:900px){
+  .grid6{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:720px){
+  body{font-size:16px}
+  section{padding-block:52px}
+  .hero,.profil,.pfe,.duo{grid-template-columns:1fr}
+  .hero{padding-top:36px}
+  .portrait{width:min(78%,320px)}
+  .facts{grid-template-columns:repeat(2,1fr)}
+  .facts div:nth-child(2){border-right:0}
+  .facts div:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .grid6,.skills,.rows{grid-template-columns:1fr}
+  .path li{grid-template-columns:22px 1fr;gap:0 14px}
+  .path .when{grid-column:2;grid-row:1;text-align:left;padding:0 0 4px}
+  .path .node{grid-column:1;grid-row:1/span 2}
+  .path .body{grid-column:2;grid-row:2}
+  nav ul{display:none}
+}
+</style>
+
+</head>
+<body>
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top"><i></i>N. Ennomani</a>
+    <ul>
+      <li><a href="#parcours">Parcours</a></li>
+      <li><a href="#pfe">PFE</a></li>
+      <li><a href="#projets">Projets</a></li>
+      <li><a href="#competences">Compétences</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="wrap" id="top">
+
+  <header class="hero">
+    <div>
+      <div class="kicker"><b></b>Portfolio · Ouarzazate, Maroc</div>
+      <h1><span class="a">Noureddine</span><span class="b">Ennomani</span></h1>
+      <p class="lead">Administrateur systèmes et réseaux. Je travaille sur les <strong>systèmes, le Cloud et la cybersécurité</strong>. J'administre et je sécurise des infrastructures. Titulaire d'un Bachelor en Technologie (DBT) Réseaux, Cloud et Cybersécurité, ESTK, Université Cadi Ayyad.</p>
+      <div class="ctas">
+        <a class="btn main" href="#contact">Me contacter</a>
+        <a class="btn" href="#projets">Voir mes projets</a>
+      </div>
+    </div>
+    <div class="portrait">
+      <div class="blob2"></div><div class="blob3"></div>
+      <div class="frame"><img alt="Portrait de Noureddine Ennomani" src="data:image/webp;base64,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"></div>
+      <svg viewBox="0 0 100 100" aria-hidden="true">
+        <line x1="50" y1="50" x2="92" y2="10"/><line x1="50" y1="50" x2="8" y2="94"/><line x1="50" y1="50" x2="100" y2="68"/>
+        <circle cx="92" cy="10" r="3.2"/><circle cx="8" cy="94" r="3.2"/><circle cx="100" cy="68" r="3.2"/>
+      </svg>
+    </div>
+  </header>
+
+  <div class="facts">
+    <div><b>DUT 2026</b><span>Gestion des Réseaux et Sécurité</span></div>
+    <div><b>2 stages</b><span>VoIP et gestion d'examens</span></div>
+    <div><b>12 projets</b><span>Zero Trust, AD, RADIUS, VoIP…</span></div>
+    <div><b>3 certifs</b><span>ANSSI, Cisco, Fortinet</span></div>
+  </div>
+
+  <section id="profil">
+    <div class="profil">
+      <p class="big">Je construis des réseaux qui <em>tiennent</em>, des systèmes qu'on peut <em>reproduire</em> et des accès qu'on peut <em>contrôler</em>.</p>
+      <div>
+        <p>Mon DUT à l'École Supérieure de Technologie d'Ouarzazate m'a donné une base complète en réseaux, systèmes et sécurité. J'ai ensuite appliqué ces bases sur des cas concrets : une plateforme de virtualisation pour les travaux pratiques, une solution VoIP, un système de gestion des examens.</p>
+        <p>Mon terrain de jeu : Proxmox, Windows Server et Active Directory, pfSense et FortiGate, Linux, avec Bash et Python pour automatiser.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="parcours">
+    <div class="sec-head">
+      <span class="label">Parcours</span>
+      <h2>Du bac au Bachelor</h2>
+    </div>
+    <ol class="path">
+      <li style="--c:var(--sun);--on:var(--on-sun)">
+        <div class="when">2023</div><div class="node"><i></i></div>
+        <div class="body"><span class="tag">Bac</span><h3>Baccalauréat en Sciences Physiques et Chimiques</h3><p class="where">Lycée Boumalne Dadès</p></div>
+      </li>
+      <li style="--c:var(--violet);--on:var(--on-violet)">
+        <div class="when">2024 – 2026</div><div class="node"><i></i></div>
+        <div class="body"><span class="tag">DUT</span><h3>Diplôme Universitaire de Technologie</h3><p class="where">École Supérieure de Technologie, Ouarzazate</p><p class="what">Gestion des Réseaux et Sécurité.</p></div>
+      </li>
+      <li style="--c:var(--teal);--on:var(--on-teal)">
+        <div class="when">19/06/2025 – 19/07/2025</div><div class="node"><i></i></div>
+        <div class="body"><span class="tag">Stage d'initiation</span><h3>Province d'Ouarzazate</h3><p class="what">Participation à la conception et à l'installation d'une solution VoIP adaptée aux besoins professionnels.</p></div>
+      </li>
+      <li style="--c:var(--coral);--on:var(--on-coral)">
+        <div class="when">01/04/2026 – 29/05/2026</div><div class="node"><i></i></div>
+        <div class="body"><span class="tag">Stage technique</span><h3>Direction Provinciale de l'Éducation Nationale</h3><p class="where">Ouarzazate</p><p class="what">Conception et réalisation d'un système de gestion des examens.</p></div>
+      </li>
+      <li style="--c:var(--sun);--on:var(--on-sun)">
+        <div class="when">Diplômé</div><div class="node"><i></i></div>
+        <div class="body"><span class="tag">Bachelor obtenu</span><h3>Diplôme de Bachelor en Technologie (DBT)</h3><p class="where">École Supérieure de Technologie d'El Kelâa des Sraghna (ESTK), Université Cadi Ayyad</p><p class="what">Réseaux, Cloud et Cybersécurité.</p></div>
+      </li>
+    </ol>
+  </section>
+
+  <section id="pfe" style="padding-block:20px 72px">
+    <div class="pfe">
+      <div>
+        <span class="label">Projet de fin d'études</span>
+        <h2>Une solution IaaS open source pour les travaux pratiques virtuels</h2>
+        <ul>
+          <li>Conception et déploiement d'une plateforme de virtualisation pédagogique basée sur Proxmox VE, pour des travaux pratiques isolés et reproductibles.</li>
+          <li>Automatisation du déploiement des machines virtuelles sur Proxmox par scripts Bash et API.</li>
+          <li>Gestion des ressources (stockage, RAM, CPU) et contrôle des accès par rôles, enseignants et étudiants.</li>
+        </ul>
+      </div>
+      <div class="flow" aria-label="Schéma de la plateforme">
+        <div><b>Enseignants / Étudiants</b>accès par rôles</div>
+        <div class="arrow">↓</div>
+        <div class="hot"><b>Scripts Bash + API</b>déploiement automatisé</div>
+        <div class="arrow">↓</div>
+        <div><b>Proxmox VE</b>KVM · LXC · templates · snapshots</div>
+        <div class="arrow">↓</div>
+        <div><b>Machines virtuelles isolées</b>CPU · RAM · stockage</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projets" style="padding-top:20px">
+    <div class="sec-head">
+      <span class="label">Projets académiques</span>
+      <h2>Mes projets par thème</h2>
+      <p>Les labos sont réalisés sous GNS3 et en machines virtuelles. Filtrez par domaine.</p>
+    </div>
+    <div class="filters" role="group" aria-label="Filtrer les projets par thème">
+      <button type="button" class="f" data-f="all" aria-pressed="true">Tous</button>
+      <button type="button" class="f" data-f="reseaux" aria-pressed="false">Réseaux</button>
+      <button type="button" class="f" data-f="securite" aria-pressed="false">Sécurité</button>
+      <button type="button" class="f" data-f="cloud" aria-pressed="false">Cloud</button>
+      <button type="button" class="f" data-f="systemes" aria-pressed="false">Systèmes</button>
+    </div>
+    <div class="grid6">
+      <article class="card" data-tags="securite reseaux systemes" style="--c:var(--violet);--on:var(--on-violet)">
+        <div class="top"><span>Authentification</span></div>
+        <h3>Serveur RADIUS</h3><p>Authentification centralisée des utilisateurs.</p>
+        <div class="stack">AD · Windows Server 2016 · GNS3</div>
+      </article>
+      <article class="card" data-tags="reseaux" style="--c:var(--sun);--on:var(--on-sun)">
+        <div class="top"><span>Téléphonie</span></div>
+        <h3>VoIP</h3><p>Déploiement d'une téléphonie IP.</p>
+        <div class="stack">Trixbox · Zoiper</div>
+      </article>
+      <article class="card" data-tags="reseaux systemes" style="--c:var(--coral);--on:var(--on-coral)">
+        <div class="top"><span>Supervision</span></div>
+        <h3>Supervision réseau</h3><p>Surveillance des équipements.</p>
+        <div class="stack">Nagios · VM · GNS3</div>
+      </article>
+      <article class="card" data-tags="reseaux systemes" style="--c:var(--teal);--on:var(--on-teal)">
+        <div class="top"><span>Services réseau</span></div>
+        <h3>DNS / DHCP</h3><p>Configuration dynamique des adresses et des noms.</p>
+        <div class="stack">Windows Server 2012</div>
+      </article>
+      <article class="card" data-tags="securite systemes" style="--c:var(--coral);--on:var(--on-coral)">
+        <div class="top"><span>Sécurité</span></div>
+        <h3>GPO</h3><p>Sécurisation et standardisation des postes clients.</p>
+        <div class="stack">Active Directory · Windows Server</div>
+      </article>
+      <article class="card" data-tags="systemes" style="--c:var(--violet);--on:var(--on-violet)">
+        <div class="top"><span>Web</span></div>
+        <h3>Serveurs web</h3><p>Apache pour l'hébergement, Nginx en reverse proxy avec optimisation.</p>
+        <div class="stack">Apache · Nginx</div>
+      </article>
+      <article class="card wide" data-tags="cloud systemes" style="--c:var(--violet);--on:var(--on-violet)">
+        <div class="top"><span>Conteneurisation</span></div>
+        <h3>Docker</h3>
+        <p>Conteneurisation de services avec Docker : création, lancement et gestion de conteneurs, comme alternative légère aux machines virtuelles.</p>
+        <div class="stack">Docker</div>
+      </article>
+      <article class="card wide" data-tags="cloud systemes" style="--c:var(--coral);--on:var(--on-coral)">
+        <div class="top"><span>Projet de fin d'études · Cloud</span></div>
+        <h3>Plateforme IaaS sur Proxmox VE</h3>
+        <p>Plateforme de virtualisation pédagogique pour travaux pratiques isolés et reproductibles, avec déploiement automatisé des machines virtuelles et accès par rôles. <a href="#pfe">Voir le détail</a></p>
+        <div class="stack">Proxmox VE · Bash · API</div>
+      </article>
+      <article class="card wide" data-tags="systemes securite" style="--c:var(--sun);--on:var(--on-sun)">
+        <div class="top"><span>Annuaire</span></div>
+        <h3>Active Directory</h3><p>Mise en place d'un domaine Active Directory sous Windows Server pour gérer au même endroit les utilisateurs, les groupes et les ordinateurs.</p>
+        <div class="stack">Active Directory · Windows Server</div>
+      </article>
+      <article class="card wide" data-tags="securite reseaux" style="--c:var(--teal);--on:var(--on-teal)">
+        <div class="top"><span>Sécurité · Zero Trust</span></div>
+        <h3>Zero Trust Network (ZTN)</h3>
+        <p>Mise en place d'une architecture Zero Trust : aucun accès à la ressource sans passer par le pare-feu OPNsense et l'authentification Authelia. Laboratoire virtualisé sous VirtualBox sur Windows.</p>
+        <div class="zflow" aria-label="Schéma de l'architecture Zero Trust">
+          <span>VM client</span><i>→</i><span class="hot">OPNsense + Authelia</span><i>→</i><span>Ressource Apache / Nginx</span>
+        </div>
+        <div class="stack">OPNsense · Authelia · VirtualBox · Apache · Nginx</div>
+      </article>
+      <article class="card wide" data-tags="reseaux systemes" style="--c:var(--violet);--on:var(--on-violet)">
+        <div class="top"><span>Supervision</span></div>
+        <h3>Network Monitoring</h3>
+        <p>Mise en place d'une supervision réseau pour suivre l'état des équipements et des services.</p>
+        <div class="stack">Supervision réseau</div>
+      </article>
+      <article class="card wide" data-tags="reseaux" style="--c:var(--coral);--on:var(--on-coral)">
+        <div class="top"><span>Infrastructure réseau</span></div>
+        <h3>Switching et Routing</h3>
+        <p>Configuration de la commutation (VLAN, STP, EtherChannel) et du routage dynamique (OSPF) d'un réseau.</p>
+        <div class="stack">Switching · Routing · VLAN · OSPF</div>
+      </article>
+    </div>
+  </section>
+
+  <section id="competences">
+    <div class="sec-head">
+      <span class="label">Compétences techniques</span>
+      <h2>Ce que je maîtrise</h2>
+    </div>
+    <div class="skills">
+      <div class="skill" style="--c:var(--teal);--on:var(--on-teal)">
+        <header><h3>Réseaux</h3><span class="lvl">maîtrise complète des protocoles</span></header>
+        <div class="chips"><span>TCP/IP</span><span>UDP</span><span>ICMP</span><span>ARP</span><span>NTP</span><span>SNMP</span><span>DNS</span><span>DHCP</span><span>NAT</span><span>IPv4/IPv6</span><span>VLAN</span><span>STP</span><span>EtherChannel</span><span>RIP</span><span>OSPF</span><span>EIGRP</span><span>BGP</span><span>ACL</span><span>VPN IPsec / SSL / OpenVPN</span><span>SIP · RTP</span><span>Wi-Fi 802.11 a/b/g/n/ac/ax</span><span>HTTP/HTTPS</span><span>FTP · SFTP · TFTP</span><span>SMTP · POP3 · IMAP</span><span>LDAP</span><span>RADIUS</span><span>VXLAN</span></div>
+      </div>
+      <div class="skill" style="--c:var(--coral);--on:var(--on-coral)">
+        <header><h3>Sécurité</h3><span class="lvl">bases solides</span></header>
+        <div class="chips"><span>pfSense</span><span>FortiGate</span><span>pare-feux</span><span>CIA</span><span>AAA</span><span>IAM</span><span>gestion des vulnérabilités</span><span>tests d'intrusion (Kali)</span><span>hardening</span><span>DMZ</span><span>segmentation réseau</span><span>SSH</span><span>TLS/SSL</span><span>AES · RSA</span><span>SHA-256 · MD5</span><span>PKI</span><span>certificats numériques</span><span>MFA</span><span>ISO 27001</span></div>
+        <p class="desc" style="margin:14px 0 0">Types d'attaques et contre-mesures : DoS/DDoS, phishing, malware, ransomware, MITM, SQL injection, XSS, CSRF, sniffing, spoofing, ingénierie sociale, zero-day.</p>
+      </div>
+      <div class="skill" style="--c:var(--violet);--on:var(--on-violet)">
+        <header><h3>Cloud &amp; virtualisation</h3><span class="lvl">fondamentaux maîtrisés</span></header>
+        <p class="desc">IaaS/PaaS/SaaS, cloud public, privé et hybride, élasticité, mutualisation. Gestion des ressources CPU, RAM et stockage, déploiement de machines virtuelles.</p>
+        <div class="chips"><span>Proxmox VE (KVM/LXC)</span><span>clustering</span><span>migration à chaud</span><span>snapshots</span><span>templates</span><span>VMware</span><span>OpenStack</span><span>Docker</span></div>
+      </div>
+      <div class="skill" style="--c:var(--sun);--on:var(--on-sun)">
+        <header><h3>Systèmes</h3></header>
+        <div class="chips" style="margin-top:12px"><span>Windows Server</span><span>Active Directory</span><span>GPO</span><span>Ubuntu</span><span>Debian</span><span>Kali</span><span>Apache</span><span>Nginx</span><span>RAID</span><span>utilisateurs et permissions</span></div>
+      </div>
+      <div class="skill wide" style="--c:var(--teal);--on:var(--on-teal)">
+        <header><h3>Dev &amp; outils</h3></header>
+        <div class="chips" style="margin-top:12px"><span>Python</span><span>PHP</span><span>JavaScript</span><span>C / C++</span><span>HTML / CSS</span><span>Bash</span><span>PowerShell</span><span>API REST</span><span>Git / GitHub</span><span>GNS3</span><span>Packet Tracer</span><span>Wireshark</span><span>Zabbix</span><span>Nagios</span><span>VS Code</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="duo">
+      <div>
+        <div class="sec-head"><span class="label">Langues</span><h2>Deux langues</h2></div>
+        <div class="langs">
+          <div><b>Français</b><span>professionnel</span></div>
+          <div><b>Anglais</b><span>professionnel</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="sec-head"><span class="label">Certifications</span><h2>Formations certifiantes</h2></div>
+        <div class="certs">
+          <div class="cert" style="--c:var(--violet);--on:var(--on-violet)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg><div><b>SecNumacadémie</b><span>ANSSI</span></div></div>
+          <div class="cert" style="--c:var(--teal);--on:var(--on-teal)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M12 7v5M12 12l-6 5M12 12l6 5"/></svg><div><b>Cisco Networking Academy</b><span>Réseaux</span></div></div>
+          <div class="cert" style="--c:var(--coral);--on:var(--on-coral)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M8 4v6"/></svg><div><b>Fortinet Certified Fundamentals</b><span>Cybersécurité</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" style="padding-top:20px">
+    <div class="contact">
+      <div>
+        <span class="label" style="color:#9A98D0">Contact</span>
+        <h2 style="margin-top:10px">Construisons <em>quelque chose.</em></h2>
+      </div>
+      <p class="lead">Je développe mes compétences en systèmes, cloud et cybersécurité et je suis ouvert aux projets, stages et collaborations. Écrivez-moi, je réponds volontiers.</p>
+      <div class="rows">
+        <div class="row"><div><small>E-mail</small><span class="v">noureddineennomani@gmail.com</span></div><button class="copy" data-copy="noureddineennomani@gmail.com" type="button">Copier</button></div>
+        <div class="row"><div><small>Téléphone</small><span class="v">+212 695 570 258</span></div><button class="copy" data-copy="+212 695 570 258" type="button">Copier</button></div>
+        <div class="row"><div><small>LinkedIn</small><span class="v">noureddine-ennomani-45a077361</span></div><a class="go" href="https://linkedin.com/in/noureddine-ennomani-45a077361" target="_blank" rel="noopener">Ouvrir</a></div>
+        <div class="row"><div><small>GitHub</small><span class="v">noureddineennomani96-dev</span></div><a class="go" href="https://github.com/noureddineennomani96-dev" target="_blank" rel="noopener">Ouvrir</a></div>
+        <div class="row"><div><small>Instagram</small><span class="v">@nourennomani_22</span></div><a class="go" href="https://www.instagram.com/nourennomani_22/" target="_blank" rel="noopener">Ouvrir</a></div>
+        <div class="row"><div><small>Ville</small><span class="v">Ouarzazate, Maroc</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <footer><span>© 2026 Noureddine Ennomani</span><span>Réseaux · Cloud · Cybersécurité</span></footer>
+</main>
+
+<script>
+document.querySelectorAll('.copy').forEach(function(b){
+  b.addEventListener('click',function(){
+    var t=b.getAttribute('data-copy');
+    var done=function(){b.textContent='Copié';setTimeout(function(){b.textContent='Copier'},1600)};
+    try{navigator.clipboard.writeText(t).then(done,function(){sel(b)})}catch(e){sel(b)}
+  });
+});
+function sel(b){var v=b.parentNode.querySelector('.v');var r=document.createRange();r.selectNodeContents(v);var s=getSelection();s.removeAllRanges();s.addRange(r)}
+
+(function(){
+  var cards=[].slice.call(document.querySelectorAll('.card[data-tags]'));
+  var btns=[].slice.call(document.querySelectorAll('.f'));
+  function count(f){return f==='all'?cards.length:cards.filter(function(c){return (' '+c.dataset.tags+' ').indexOf(' '+f+' ')>-1}).length}
+  btns.forEach(function(b){
+    var f=b.dataset.f;b.textContent+=' ('+count(f)+')';
+    b.addEventListener('click',function(){
+      btns.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
+      cards.forEach(function(c){c.hidden=!(f==='all'||(' '+c.dataset.tags+' ').indexOf(' '+f+' ')>-1)});
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
