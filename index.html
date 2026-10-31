@@ -337,6 +337,18 @@ footer a{text-decoration:none;color:var(--accent)}
   html{scroll-padding-top:120px}
 }
 </style>
+<style>
+/* logos des outils (simple-icons, chargés depuis un CDN) : teinte = couleur du domaine de la carte */
+.stack .lg{display:inline-block;width:1.1em;height:1.1em;vertical-align:-.2em;margin:0 5px 0 0;background:var(--c,var(--accent));
+  -webkit-mask:var(--u) center/contain no-repeat;mask:var(--u) center/contain no-repeat}
+.stack .tool{display:inline-block;margin-right:2px;white-space:nowrap}
+.stack .tool::after,.stack .sep::after{content:none}
+.stack .sep{color:var(--muted);margin:0 6px}
+</style>
+<style>
+/* descriptifs justifiés */
+.card p,.pfe li{text-align:justify;text-justify:inter-word;hyphens:none;-webkit-hyphens:none}
+</style>
 </head>
 <body>
 <div class="aurora" aria-hidden="true"></div>
@@ -364,7 +376,7 @@ footer a{text-decoration:none;color:var(--accent)}
   <header class="hero">
     <canvas id="net" aria-hidden="true"></canvas>
     <div>
-      <div class="prompt"><span><span class="ok">$</span> whoami</span><span class="live"><i></i>Ouarzazate, Maroc</span><span class="live hot"><i></i>Recherche un stage de 3 mois</span></div>
+      <div class="prompt"><span><span class="ok">$</span> whoami</span><span class="live"><i></i>Maroc</span><span class="live hot"><i></i>Recherche un stage de 3 mois</span></div>
       <h1><span>Noureddine</span><span class="b">Ennomani</span></h1>
       <p class="typed"><span class="ok">&gt;</span> <span id="typed">Étudiant en Réseaux, Cloud et Cybersécurité</span><span class="caret" aria-hidden="true"></span></p>
       <div class="role">
@@ -398,7 +410,7 @@ footer a{text-decoration:none;color:var(--accent)}
     <div><b>DUT 2026</b><span>Gestion des Réseaux et Sécurité</span></div>
     <div><b>Bachelor 2027</b><span>Réseaux, Cloud et Cybersécurité</span></div>
     <div><b><span data-count="2">2</span> stages</b><span>VoIP et gestion d'examens</span></div>
-    <div><b><span data-count="11">11</span> projets</b><span>Zero Trust, AD, RADIUS, VoIP…</span></div>
+    <div><b><span data-count="10">10</span> projets</b><span>Zero Trust, AD, RADIUS, VoIP…</span></div>
     <div><b><span data-count="3">3</span> certifs</b><span>ANSSI, Cisco, Fortinet</span></div>
   </div>
 
@@ -464,6 +476,53 @@ footer a{text-decoration:none;color:var(--accent)}
     </div>
   </section>
 
+  <section id="stages" style="padding-block:0 84px">
+    <div class="pfe" id="stage-voip">
+      <div>
+        <span class="path-label">stage d'initiation</span>
+        <h2>Une solution VoIP pour la Province d'Ouarzazate</h2>
+        <ul>
+          <li>Participation à la conception et à l'installation d'une solution VoIP adaptée aux besoins professionnels, avec une maquette réalisée sous VMware Workstation.</li>
+          <li>Installation et configuration d'un serveur de téléphonie IP Trixbox (basé sur Asterisk) et création des extensions SIP des utilisateurs.</li>
+          <li>Configuration des clients softphone Zoiper sous Windows et Android pour passer et recevoir des appels internes.</li>
+          <li>Recherche de téléphones IP abordables pour remplacer progressivement les téléphones analogiques.</li>
+        </ul>
+      </div>
+      <div class="flow" aria-label="Schéma de la solution VoIP">
+        <div><b>Clients Zoiper</b>Windows 10 (VM) · Android</div>
+        <div class="arrow">↓</div>
+        <div><b>Réseau local</b>signalisation SIP · audio RTP</div>
+        <div class="arrow">↓</div>
+        <div class="hot"><b>Serveur Trixbox</b>Asterisk · extensions SIP</div>
+        <div class="arrow">↓</div>
+        <div><b>Appels internes</b>entre les extensions</div>
+      </div>
+    </div>
+    <div class="pfe" id="stage-dpen" style="margin-top:20px">
+      <div>
+        <span class="path-label">stage technique</span>
+        <h2>Une application web de gestion des examens pour la DPEN</h2>
+        <ul>
+          <li>Conception et réalisation d'une application web bilingue (arabe / français) pour les examens de 6<sup>e</sup> année primaire : environ 3 500 élèves, 113 écoles, 15 centres d'examen.</li>
+          <li>Import des listes d'élèves depuis Excel, avec détection des doublons et attribution de numéros de table uniques NE-XXXX (algorithme de Fisher-Yates).</li>
+          <li>Production automatique de 4 documents officiels en PDF : convocations avec QR code, étiquettes de table, feuilles de présence et listes des tables.</li>
+          <li>Accès à deux niveaux : administrateur et écoles.</li>
+        </ul>
+      </div>
+      <div class="flow" aria-label="Schéma de l'application de gestion des examens">
+        <div><b>Administrateur / Écoles</b>authentification à deux niveaux</div>
+        <div class="arrow">↓</div>
+        <div class="hot"><b>Application web PHP</b>HTML · CSS · JavaScript · XAMPP</div>
+        <div class="arrow">↓</div>
+        <div><b>Import Excel</b>SimpleXLSX · numéros NE-XXXX</div>
+        <div class="arrow">↓</div>
+        <div><b>Stockage JSON</b>un fichier par école · examens</div>
+        <div class="arrow">↓</div>
+        <div><b>Documents PDF</b>DOMPDF · convocations · étiquettes · listes</div>
+      </div>
+    </div>
+  </section>
+
   <section id="projets" style="padding-top:20px">
     <div class="sec-head">
       <span class="path-label">projets</span>
@@ -492,13 +551,6 @@ footer a{text-decoration:none;color:var(--accent)}
         <p>Authentification centralisée des utilisateurs.</p>
         <div class="doms"><span class="dom d-securite"><b></b>Sécurité</span><span class="dom d-reseaux"><b></b>Réseaux</span><span class="dom d-systemes"><b></b>Systèmes</span></div>
         <div class="stack"><span>stack</span>AD · Windows Server 2016 · GNS3</div>
-      </article>
-      <article class="card feat c-cloud" data-tags="cloud systemes">
-        <div class="top"><span class="kick">Projet de fin d'études</span></div>
-        <h3>Plateforme IaaS sur Proxmox VE</h3>
-        <p>Plateforme de virtualisation pédagogique pour travaux pratiques isolés et reproductibles, avec déploiement automatisé des machines virtuelles et accès par rôles. <a href="#pfe">Voir le détail</a></p>
-        <div class="doms"><span class="dom d-cloud"><b></b>Cloud</span><span class="dom d-systemes"><b></b>Systèmes</span></div>
-        <div class="stack"><span>stack</span>Proxmox VE · Bash · API</div>
       </article>
       <article class="card c-reseaux" data-tags="reseaux">
         <div class="top"><span class="kick">Téléphonie</span></div>
@@ -624,7 +676,7 @@ footer a{text-decoration:none;color:var(--accent)}
           <div class="row"><div><small>Téléphone</small><span class="v">+212 695 570 258</span></div><button class="copy" data-copy="+212 695 570 258" type="button">Copier</button></div>
           <div class="row"><div><small>LinkedIn</small><span class="v">noureddine-ennomani-45a077361</span></div><a class="go" href="https://linkedin.com/in/noureddine-ennomani-45a077361" target="_blank" rel="noopener">Ouvrir</a></div>
           <div class="row"><div><small>GitHub</small><span class="v">noureddineennomani96-dev</span></div><a class="go" href="https://github.com/noureddineennomani96-dev" target="_blank" rel="noopener">Ouvrir</a></div>
-          <div class="row"><div><small>Ville</small><span class="v">Ouarzazate, Maroc</span></div></div>
+          <div class="row"><div><small>Pays</small><span class="v">Maroc</span></div></div>
         </div>
       </div>
     </div>
@@ -803,5 +855,30 @@ footer a{text-decoration:none;color:var(--accent)}
 })();
 </script>
 
+<script>
+/* ajoute le logo de chaque outil dans la ligne « stack » des cartes (si le logo existe) */
+(function(){
+  var V='16.36.0',BASE='https://cdn.jsdelivr.net/npm/simple-icons@'+V+'/icons/';
+  var MAP={'proxmox ve':'proxmox','proxmox':'proxmox','truenas scale':'truenas','vmware workstation':'vmware','virtualbox':'virtualbox',
+    'opnsense':'opnsense','authelia':'authelia','apache':'apache','nginx':'nginx','docker':'docker','bash':'gnubash',
+    'zoiper':'zoiper','php':'php','xampp':'xampp','javascript':'javascript','cisco':'cisco','fortinet':'fortinet','linux':'linux'};
+  document.querySelectorAll('.card .stack').forEach(function(el){
+    var label=el.querySelector('span'); if(!label) return;
+    var txt=el.textContent.replace(label.textContent,'').trim();
+    if(!txt) return;
+    var frag=document.createDocumentFragment();
+    txt.split('·').forEach(function(t,i){
+      t=t.trim(); if(!t) return;
+      if(i>0){var s=document.createElement('span');s.className='sep';s.textContent='·';frag.appendChild(s);}
+      var w=document.createElement('span');w.className='tool';
+      var slug=MAP[t.toLowerCase()];
+      if(slug){var ic=document.createElement('i');ic.className='lg';ic.setAttribute('aria-hidden','true');ic.style.setProperty('--u','url('+BASE+slug+'.svg)');w.appendChild(ic);}
+      w.appendChild(document.createTextNode(t));frag.appendChild(w);
+    });
+    while(label.nextSibling) el.removeChild(label.nextSibling);
+    el.appendChild(frag);
+  });
+})();
+</script>
 </body>
 </html>
